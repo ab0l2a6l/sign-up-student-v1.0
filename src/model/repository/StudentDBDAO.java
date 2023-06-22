@@ -4,6 +4,7 @@ import model.entity.Student;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.Statement;
 
 public class StudentDBDAO implements StudentDBDAORead, StudentDBDAOWrite {
@@ -41,6 +42,18 @@ public class StudentDBDAO implements StudentDBDAORead, StudentDBDAOWrite {
 
     @Override
     public Student findById(String id) throws Exception {
+        query = "select * from student where student_id = " + id;
+        ResultSet set = statement.executeQuery(query);
+        if (set.next()) {
+            Student student = new Student();
+            student.setfName(set.getString("student_first_name"));
+            student.setlName(set.getString("student_last_name"));
+            student.setAge(set.getInt("student_age"));
+            student.setEmail(set.getString("student_email"));
+            student.setId(set.getString("student_id"));
+
+            return student ;
+        }
         return null;
     }
 

@@ -5,7 +5,7 @@ public class Student {
     private String fName;
     private String lName;
     private String email;
-    private byte age;
+    private int age;
 
     public String getId() {
         return id;
@@ -39,11 +39,11 @@ public class Student {
         this.email = email;
     }
 
-    public byte getAge() {
+    public int getAge() {
         return age;
     }
 
-    public void setAge(byte age) {
+    public void setAge(int age) {
         this.age = age;
     }
 
