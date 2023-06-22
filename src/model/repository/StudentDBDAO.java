@@ -105,7 +105,7 @@ public class StudentDBDAO implements StudentDBDAORead, StudentDBDAOWrite {
                 "student_last_name = \"" + student.getlName() + "\" , " +
                 "student_email = \"" + student.getEmail() + "\" , " +
                 "student_age = " + student.getAge() +
-                " where student_id = " + student.getId() ;
+                " where student_id = " + student.getId();
         System.out.println(query);
         statement.executeUpdate(query);
     }

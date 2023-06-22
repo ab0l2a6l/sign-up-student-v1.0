@@ -4,7 +4,6 @@ import common.StaticScanner;
 import controler.StudentControler;
 import model.entity.Student;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -52,16 +51,16 @@ public class Main {
                 }
 
                 case 4 -> {
-                    Student student = new Student();
+                    Student student;
                     student = studentControler.findById(input.nextLine());
                     if (student != null) {
                         System.out.println(student.getfName() + student.getlName() + student.getEmail()
-                        + student.getAge() + student.getId());
+                                + student.getAge() + student.getId());
                     }
                 }
 
                 case 5 -> {
-                    List<Student> studentList = new ArrayList<>();
+                    List<Student> studentList;
                     studentList = studentControler.findByAll();
                     studentList.forEach(System.out::println);
                 }
