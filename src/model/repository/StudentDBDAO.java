@@ -81,7 +81,11 @@ public class StudentDBDAO implements StudentDBDAORead, StudentDBDAOWrite {
 
     @Override
     public void save(Student student) throws Exception {
-
+        query ="insert into student (student_first_name ,student_last_name " +
+                ",student_email , student_age , student_id ) " +
+                "values (\""+student.getfName() +"\",\"" +student.getlName() +"\",\"" + student.getEmail() +"\"" +
+                ",\"" +student.getAge() + "\","+student.getId() +")";
+        statement.executeUpdate(query);
     }
 
     @Override
