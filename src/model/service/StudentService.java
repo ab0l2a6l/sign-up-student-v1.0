@@ -41,7 +41,7 @@ public class StudentService implements StudentServiceRead, StudentServiceWrite {
     }
 
     @Override
-    public void save(Student student) throws Exception {
+    public void save(Student student) {
         try {
             write = new StudentDBDAO();
             write.save(student);
@@ -53,7 +53,7 @@ public class StudentService implements StudentServiceRead, StudentServiceWrite {
     }
 
     @Override
-    public void delete(String id) throws Exception {
+    public void delete(String id) {
         try {
             write = new StudentDBDAO();
             write.delete(id);
@@ -65,7 +65,7 @@ public class StudentService implements StudentServiceRead, StudentServiceWrite {
     }
 
     @Override
-    public void edit(Student student) throws Exception {
+    public void edit(Student student) {
         try {
             write = new StudentDBDAO();
             write.edit(student);
