@@ -50,7 +50,12 @@ public class Main {
                 }
 
                 case 4 -> {
-
+                    Student student = new Student();
+                    student = studentControler.findById(input.nextLine());
+                    if (student != null) {
+                        System.out.println(student.getfName() + student.getlName() + student.getEmail()
+                        + student.getAge() + student.getId());
+                    }
                 }
 
                 case 5 -> {

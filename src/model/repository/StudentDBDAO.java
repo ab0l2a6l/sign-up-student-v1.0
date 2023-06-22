@@ -45,6 +45,7 @@ public class StudentDBDAO implements StudentDBDAORead, StudentDBDAOWrite {
     @Override
     public Student findById(String id) throws Exception {
         query = "select * from student where student_id = " + id;
+        System.out.println(query);
         ResultSet set = statement.executeQuery(query);
         if (set.next()) {
             Student student = new Student();
