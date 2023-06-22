@@ -34,7 +34,20 @@ public class Main {
                 }
 
                 case 3 -> {
-                      }
+                    Student student = new Student();
+
+                    System.out.println("insert id for update: ");
+                    student.setId(input.nextLine());
+
+                    student.setfName(input.nextLine());
+                    student.setlName(input.nextLine());
+                    student.setEmail(input.nextLine());
+                    student.setAge(input.nextInt());
+                    input.nextLine();
+
+                    studentControler.edit(student);
+
+                }
 
                 case 4 -> {
 

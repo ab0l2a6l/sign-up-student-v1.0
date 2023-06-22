@@ -99,11 +99,12 @@ public class StudentDBDAO implements StudentDBDAORead, StudentDBDAOWrite {
     @Override
     public void edit(Student student) throws Exception {
         query = "update student set " +
-                "student_first_name\"" + student.getfName() + "\"" +
-                "student_last_name\"" + student.getlName() + "\"" +
-                "student_email \"" + student.getEmail() + "\"" +
-                "student_age " + student.getAge() +
-                "where student_id = \"" + student.getId() + "\"";
+                "student_first_name = \"" + student.getfName() + "\" , " +
+                "student_last_name = \"" + student.getlName() + "\" , " +
+                "student_email = \"" + student.getEmail() + "\" , " +
+                "student_age = " + student.getAge() +
+                " where student_id = " + student.getId() ;
+        System.out.println(query);
         statement.executeUpdate(query);
     }
 }
