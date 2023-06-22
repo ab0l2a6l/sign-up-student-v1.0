@@ -84,7 +84,8 @@ public class StudentDBDAO implements StudentDBDAORead, StudentDBDAOWrite {
         query = "insert into student (student_first_name ,student_last_name " +
                 ",student_email , student_age , student_id ) " +
                 "values (\"" + student.getfName() + "\",\"" + student.getlName() + "\",\"" + student.getEmail() + "\"" +
-                ",\"" + student.getAge() + "\"," + student.getId() + ")";
+                "," + student.getAge() + "," + student.getId() + ")";
+        System.out.println(query);
         statement.executeUpdate(query);
     }
 
