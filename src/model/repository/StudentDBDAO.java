@@ -6,7 +6,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.util.ArrayList;
+
 import java.util.List;
 
 public class StudentDBDAO implements StudentDBDAORead, StudentDBDAOWrite {
@@ -81,27 +81,27 @@ public class StudentDBDAO implements StudentDBDAORead, StudentDBDAOWrite {
 
     @Override
     public void save(Student student) throws Exception {
-        query ="insert into student (student_first_name ,student_last_name " +
+        query = "insert into student (student_first_name ,student_last_name " +
                 ",student_email , student_age , student_id ) " +
-                "values (\""+student.getfName() +"\",\"" +student.getlName() +"\",\"" + student.getEmail() +"\"" +
-                ",\"" +student.getAge() + "\","+student.getId() +")";
+                "values (\"" + student.getfName() + "\",\"" + student.getlName() + "\",\"" + student.getEmail() + "\"" +
+                ",\"" + student.getAge() + "\"," + student.getId() + ")";
         statement.executeUpdate(query);
     }
 
     @Override
     public void delete(String id) throws Exception {
-        query ="delete * from student where student_id = " + id;
+        query = "delete * from student where student_id = " + id;
         statement.executeUpdate(query);
     }
 
     @Override
     public void edit(Student student) throws Exception {
-        query ="update student set " +
-                "student_first_name\"" + student.getfName() +"\"" +
-                "student_last_name\"" + student.getlName() +"\"" +
-                "student_email \"" + student.getEmail() +"\"" +
-                "student_age " +student.getAge() +
-                "where student_id = \""+student.getId() +"\"";
+        query = "update student set " +
+                "student_first_name\"" + student.getfName() + "\"" +
+                "student_last_name\"" + student.getlName() + "\"" +
+                "student_email \"" + student.getEmail() + "\"" +
+                "student_age " + student.getAge() +
+                "where student_id = \"" + student.getId() + "\"";
         statement.executeUpdate(query);
     }
 }
