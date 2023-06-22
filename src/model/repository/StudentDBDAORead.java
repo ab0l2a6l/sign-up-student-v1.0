@@ -8,4 +8,6 @@ public interface StudentDBDAORead {
     Student findById(String id) throws Exception;
 
     List<Student> findByAll() throws Exception;
+
+    void close() throws Exception;
 }

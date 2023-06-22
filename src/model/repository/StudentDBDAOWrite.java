@@ -8,4 +8,6 @@ public interface StudentDBDAOWrite {
     void delete(String id) throws Exception;
 
     void edit(Student student) throws Exception;
+
+    void close ()throws Exception;
 }
