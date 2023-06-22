@@ -90,7 +90,8 @@ public class StudentDBDAO implements StudentDBDAORead, StudentDBDAOWrite {
 
     @Override
     public void delete(String id) throws Exception {
-
+        query ="delete * from student where student_id = " + id;
+        statement.executeUpdate(query);
     }
 
     @Override
