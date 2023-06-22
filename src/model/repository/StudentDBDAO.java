@@ -7,6 +7,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class StudentDBDAO implements StudentDBDAORead, StudentDBDAOWrite {
@@ -62,7 +63,7 @@ public class StudentDBDAO implements StudentDBDAORead, StudentDBDAOWrite {
 
     @Override
     public List<Student> findByAll() throws Exception {
-        List<Student> studentList = null;
+        List<Student> studentList = new ArrayList<>();
         query = "select * from  student";
         ResultSet set = statement.executeQuery(query);
         while (set.next()) {

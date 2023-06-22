@@ -4,6 +4,8 @@ import common.StaticScanner;
 import controler.StudentControler;
 import model.entity.Student;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -59,7 +61,9 @@ public class Main {
                 }
 
                 case 5 -> {
-
+                    List<Student> studentList = new ArrayList<>();
+                    studentList = studentControler.findByAll();
+                    studentList.forEach(System.out::println);
                 }
 
                 case 6 -> {
