@@ -6,6 +6,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 public class StudentDBDAO implements StudentDBDAORead, StudentDBDAOWrite {
 
@@ -28,13 +30,13 @@ public class StudentDBDAO implements StudentDBDAORead, StudentDBDAOWrite {
         }
     }
 
-    public  void close() {
+    public void close() {
         try {
             connection.close();
             statement.close();
             System.out.println("disconnected");
 
-        }catch (Exception e) {
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
     }
@@ -52,14 +54,29 @@ public class StudentDBDAO implements StudentDBDAORead, StudentDBDAOWrite {
             student.setEmail(set.getString("student_email"));
             student.setId(set.getString("student_id"));
 
-            return student ;
+            return student;
         }
         return null;
     }
 
     @Override
-    public Student findByAll() throws Exception {
-        return null;
+    public List<Student> findByAll() throws Exception {
+        List<Student> studentList = null;
+        query = "select * from  student";
+        ResultSet set = statement.executeQuery(query);
+        while (set.next()) {
+            Student student = new Student();
+
+            student.setfName(set.getString("student_first_name"));
+            student.setlName(set.getString("student_last_name"));
+            student.setAge(set.getInt("student_age"));
+            student.setEmail(set.getString("student_email"));
+            student.setId(set.getString("student_id"));
+
+            studentList.add(student);
+        }
+
+        return studentList;
     }
 
     @Override
